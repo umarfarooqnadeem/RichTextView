@@ -57,7 +57,7 @@ div {
     content: attr(placeholder);
     position: absolute;
     top: 0px;
-    color: #101D2D;
+    color: #94A3B3;
 }
 
 #editor {
@@ -66,7 +66,6 @@ div {
     overflow: auto;
     display: block;
     font-size: 12pt;
-    font-family: 'SF Pro Text';
     color:#101D2D;
 }
 
