@@ -37,7 +37,7 @@ import WebKit
 }
 
 /// The value we hold in order to be able to set the line height before the JS completely loads.
-private let DefaultInnerLineHeight: Int = 28
+private let DefaultInnerLineHeight: Int = 24
 
 public class RichEditorWebView: WKWebView {
     public var accessoryView: UIView?

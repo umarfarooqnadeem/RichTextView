@@ -57,7 +57,7 @@ div {
     content: attr(placeholder);
     position: absolute;
     top: 0px;
-    color: #cccccc;
+    color: #101D2D;
 }
 
 #editor {
@@ -66,6 +66,8 @@ div {
     overflow: auto;
     display: block;
     font-size: 12pt;
+    font-family: 'SF Pro Text';
+    color:#101D2D;
 }
 
 input[type=checkbox] {
