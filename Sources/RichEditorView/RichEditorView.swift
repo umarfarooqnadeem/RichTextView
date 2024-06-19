@@ -485,6 +485,8 @@ public class RichEditorWebView: WKWebView {
             if let url = navigationAction.request.url {
                 if delegate?.richEditor?(self, shouldInteractWith: url) ?? false {
                     return decisionHandler(WKNavigationActionPolicy.allow);
+                } else {
+                    return decisionHandler(WKNavigationActionPolicy.cancel);
                 }
             }
         }
