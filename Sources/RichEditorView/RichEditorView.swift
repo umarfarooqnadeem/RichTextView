@@ -58,6 +58,8 @@ public class RichEditorWebView: WKWebView {
         set { webView.accessoryView = newValue }
     }
     
+    var webViewHeight: CGFloat!
+    
     /// The internal WKWebView that is used to display the text.
     open private(set) var webView: RichEditorWebView
     
@@ -457,7 +459,13 @@ public class RichEditorWebView: WKWebView {
     
     // MARK: WKWebViewDelegate
     
-    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {}
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        // Evaluate JavaScript to get the content height
+        webView.evaluateJavaScript("document.body.scrollHeight") { [weak self] (height, error) in
+            guard let self = self, let height = height as? CGFloat else { return }
+            self.webViewHeight = height
+        }
+    }
     
     public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         // Handle pre-defined editor actions
