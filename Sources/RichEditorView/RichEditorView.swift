@@ -468,7 +468,7 @@ public class RichEditorWebView: WKWebView {
     
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         // Delay to ensure all content including images are fully loaded
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
             // Evaluate JavaScript to get the content height
             webView.evaluateJavaScript("document.body.scrollHeight") { [weak self] (height, error) in
                 guard let self = self, let height = height as? CGFloat else { return }
