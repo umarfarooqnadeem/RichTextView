@@ -58,7 +58,7 @@ public class RichEditorWebView: WKWebView {
         set { webView.accessoryView = newValue }
     }
     
-    var webViewHeight: CGFloat!
+    open var webViewHeight: CGFloat!
     
     /// The internal WKWebView that is used to display the text.
     open private(set) var webView: RichEditorWebView
