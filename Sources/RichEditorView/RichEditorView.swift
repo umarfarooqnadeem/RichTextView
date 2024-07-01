@@ -63,7 +63,7 @@ public class RichEditorWebView: WKWebView {
     
     open var webViewHeight: CGFloat {
         didSet {
-            delegate?.richEditor(didSetWebViewContent: webViewHeight)
+            delegate?.richEditor(didSetWebViewContent: webViewHeight!)
         }
     }
     
