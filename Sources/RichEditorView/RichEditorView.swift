@@ -34,6 +34,9 @@ import WebKit
     /// Called when custom actions are called by callbacks in the JS
     /// By default, this method is not used unless called by some custom JS that you add
     @objc optional func richEditor(_ editor: RichEditorView, handle action: String)
+    
+    /// Called when the navigation is done and webView content is loaded
+    @objc optional func richEditor(didSetWebViewContent height: CGFloat)
 }
 
 /// The value we hold in order to be able to set the line height before the JS completely loads.
@@ -58,7 +61,11 @@ public class RichEditorWebView: WKWebView {
         set { webView.accessoryView = newValue }
     }
     
-    open var webViewHeight: CGFloat!
+    open var webViewHeight: CGFloat {
+        didSet {
+            delegate?.richEditor(didSetWebViewContent: self)
+        }
+    }
     
     /// The internal WKWebView that is used to display the text.
     open private(set) var webView: RichEditorWebView
